@@ -26,7 +26,7 @@ export class CreateUserFormComponent implements OnInit {
   }
 
 
-  login(): void {
+  createUser(): void {
     if (this.createUserForm.invalid || this.createUserForm.value.password !== this.createUserForm.value.confirm) {
       console.log('Form invalid');
       return;
