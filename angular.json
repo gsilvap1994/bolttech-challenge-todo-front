@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bolttech-todo-list-front"
+    }
+  },
+  "defaultProject": "bolttech-todo-list-front",
+  "cli": {
+    "analytics": "a34e1a07-ae1d-4ea1-9381-97abd84d4e0f"
+  }
 }

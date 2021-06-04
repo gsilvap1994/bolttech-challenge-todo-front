@@ -1,0 +1,42 @@
+<section class="login my-3">
+  <form [formGroup]="createUserForm">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 form-group mb-3">
+          <label for="name">Nome</label>
+          <input class="form-control" type="text" id="name" formControlName="name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 form-group mb-3">
+          <label for="email">Email</label>
+          <input class="form-control" type="text" id="email" formControlName="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 form-group mb-3">
+          <label for="password">Password</label>
+          <input class="form-control" type="password" id="password" formControlName="password">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 form-group mb-3">
+          <label for="confirm">Password confirm</label>
+          <input class="form-control" type="password" id="confirm" formControlName="confirm">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 form-group my-3">
+          <button (click)="login()" class="btn btn-primary w-100">Entrar</button>
+        </div>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-12 text-center">
+          Aidnda não possui conta? <a [routerLink]="['/register']">Criar</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
