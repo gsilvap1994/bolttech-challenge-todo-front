@@ -1,9 +1,22 @@
 <div class="card bg-light">
-  <div class="card-body py-5">
+  <div class="card-body my-5">
     <div class="row">
-      <div class="col-12 text-center my-5">
+      <div class="col-12 text-center mb-2">
         <h2>Create new project</h2>
       </div>
+      <form [formGroup]="createProjectForm">
+        <div class="row form-group">
+          <div class="col-12">
+            <input placeholder="Enter the project name" class="form-control" type="text" id="projectName"
+              formControlName="name">
+          </div>
+        </div>
+        <div class="row form-group mt-3">
+          <div class="col-12 d-flex justify-content-center">
+            <button (click)="createProject()" class="btn btn-primary w-100">Create Project</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

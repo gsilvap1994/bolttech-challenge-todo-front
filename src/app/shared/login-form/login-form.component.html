@@ -1,16 +1,27 @@
 <section class="login my-3">
-  <form [formGroup]="loginForm">
+  <form *ngIf="loginForm" [formGroup]="loginForm">
     <div class="container">
       <div class="row">
         <div class="col-12 form-group mb-3">
           <label for="email">Email</label>
-          <input class="form-control" type="text" id="email" formControlName="email">
+          <input class="form-control" type="text" id="email" formControlName="email" autocomplete="off">
+          <div class="invalid-feedback d-block" *ngIf="loginForm.touched && loginForm.controls.email.errors?.email">
+            Please enter a valid email address
+          </div>
+          <div class="invalid-feedback d-block" *ngIf="loginForm.touched && loginForm.controls.email.errors?.required">
+            Please enter an email
+            address
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12 form-group mb-3">
           <label for="password">Password</label>
           <input class="form-control" type="password" id="password" formControlName="password">
+          <div class="invalid-feedback d-block"
+            *ngIf="loginForm.touched && loginForm.controls.password.errors?.required">
+            Please enter your password
+          </div>
         </div>
       </div>
 

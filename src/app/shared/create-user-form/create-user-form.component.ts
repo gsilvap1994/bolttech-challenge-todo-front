@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-user-form',
@@ -10,7 +11,7 @@ export class CreateUserFormComponent implements OnInit {
 
   public createUserForm: FormGroup;
   @Output() submitForm: EventEmitter<any> = new EventEmitter<any>();
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.createUserForm = this.initForm();
@@ -27,8 +28,11 @@ export class CreateUserFormComponent implements OnInit {
 
 
   createUser(): void {
-    if (this.createUserForm.invalid || this.createUserForm.value.password !== this.createUserForm.value.confirm) {
-      console.log('Form invalid');
+    this.createUserForm.markAllAsTouched();
+    if (this.createUserForm.invalid) {
+      this.createUserForm.value.password !== this.createUserForm.value.confirm ?
+        this.toastr.error('Password and confirm does not match') :
+        this.toastr.error('Please enter valid information in the form fields.');
       return;
     }
 

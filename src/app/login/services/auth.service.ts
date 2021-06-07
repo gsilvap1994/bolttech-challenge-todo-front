@@ -24,5 +24,13 @@ export class AuthService {
     return this.storage.get('user');
   }
 
+  public getToken(): any {
+    return this.storage.get('token');
+  }
+
+  public logOut(): void {
+    this.storage.clear();
+  }
+
   public isAuthenticated: boolean = !!this.storage.get('token');
 }

@@ -15,4 +15,8 @@ export class StorageLayerService {
   public get(key: string): any {
     return this.storage.get(key);
   }
+
+  public clear(): void {
+    this.storage.clear();
+  }
 }
