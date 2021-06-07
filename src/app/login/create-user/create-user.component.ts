@@ -23,7 +23,7 @@ export class CreateUserComponent implements OnInit {
         this.storage.save('user', response.user);
         this.storage.save('token', response.token);
 
-        this.router.navigate(['/projects'])
+        this.router.navigateByUrl('/projects');
       })
     })
   }
