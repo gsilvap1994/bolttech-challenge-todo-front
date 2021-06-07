@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +11,7 @@ export class LoginFormComponent implements OnInit {
 
   public loginForm: FormGroup;
   @Output() submitForm: EventEmitter<any> = new EventEmitter<any>();
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loginForm = this.initForm();
@@ -25,8 +26,9 @@ export class LoginFormComponent implements OnInit {
 
 
   login(): void {
+    this.loginForm.markAsTouched();
     if (this.loginForm.invalid) {
-      console.log('Form invalid');
+      this.toastr.error('Please enter valid information in the form fields.');
       return;
     }
 

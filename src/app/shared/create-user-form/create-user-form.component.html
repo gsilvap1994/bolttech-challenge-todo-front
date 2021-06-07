@@ -5,24 +5,52 @@
         <div class="col-12 form-group mb-3">
           <label for="name">Nome</label>
           <input class="form-control" type="text" id="name" formControlName="name">
+          <div class="invalid-feedback d-block"
+            *ngIf="createUserForm.touched && createUserForm.controls.name.errors?.required">
+            Please enter your name
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12 form-group mb-3">
           <label for="email">Email</label>
           <input class="form-control" type="text" id="email" formControlName="email">
+          <div class="invalid-feedback d-block"
+            *ngIf="createUserForm.touched && createUserForm.controls.email.errors?.email">
+            Please enter a valid email address
+          </div>
+          <div class="invalid-feedback d-block"
+            *ngIf="createUserForm.touched && createUserForm.controls.email.errors?.required">
+            Please enter your email
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12 form-group mb-3">
           <label for="password">Password</label>
           <input class="form-control" type="password" id="password" formControlName="password">
+          <div class="invalid-feedback d-block"
+            *ngIf="createUserForm.touched && createUserForm.controls.password.errors?.email">
+            The password must have more then 6 characters
+          </div>
+          <div class="invalid-feedback d-block"
+            *ngIf="createUserForm.touched && createUserForm.controls.password.errors?.required">
+            Please enter your password
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12 form-group mb-3">
           <label for="confirm">Password confirm</label>
           <input class="form-control" type="password" id="confirm" formControlName="confirm">
+          <div class="invalid-feedback d-block"
+            *ngIf="createUserForm.touched && createUserForm.controls.confirm.errors?.email">
+            The password must have more then 6 characters
+          </div>
+          <div class="invalid-feedback d-block"
+            *ngIf="createUserForm.touched && createUserForm.controls.confirm.errors?.required">
+            Please confirm your password
+          </div>
         </div>
       </div>
 
